@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050b08">
+<title>SATYAM HACK STORE</title>
+<style>
+:root{--green:#39ff88;--bg:#050b08;--panel:#0b1711;--muted:#9bb6a4}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10271a 0,#050b08 55%);color:#eaffef;font-family:Arial,sans-serif}
+header{padding:24px 16px;text-align:center;border-bottom:1px solid #1d5535;background:#07110b}
+.brand{font-size:clamp(27px,6vw,42px);font-weight:900;letter-spacing:2px;color:var(--green);text-shadow:0 0 16px #39ff8866}
+.sub{color:#a9cbb5;margin-top:8px;font-size:13px;letter-spacing:1px}
+.wrap{max-width:900px;margin:25px auto;padding:0 15px}
+.terminal{border:1px solid #23613c;background:#07120b;border-radius:13px;padding:15px;margin-bottom:20px;box-shadow:0 0 25px #39ff8810}
+.termline{font-family:monospace;color:var(--green);font-size:13px;line-height:1.7}.cursor{animation:blink 1s steps(2,start) infinite}@keyframes blink{to{visibility:hidden}}
+.search{width:100%;padding:15px 16px;border-radius:10px;border:1px solid #286443;background:#08140c;color:#fff;font-size:15px;outline:none;margin:0 0 20px}
+h2{color:var(--green);font-size:18px;margin:22px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.app{background:linear-gradient(145deg,#102319,#09130d);border:1px solid #205437;border-radius:15px;padding:16px;box-shadow:0 8px 24px #0005}
+.apphead{display:flex;align-items:center;gap:12px}.icon{width:52px;height:52px;border-radius:13px;display:grid;place-items:center;background:#123b25;color:var(--green);font-size:24px;font-weight:900;border:1px solid #2d8b55}
+.app h3{font-size:16px;margin:0 0 5px}.badge{font-size:11px;color:#83dca4}
+.desc{font-size:13px;line-height:1.5;color:#b2c8b9;min-height:39px;margin:14px 0}
+.btn{display:block;text-align:center;padding:12px;border-radius:9px;background:var(--green);color:#041109;text-decoration:none;font-weight:900;font-size:13px}
+.btn:hover{filter:brightness(1.12)}.empty{display:none;color:var(--muted);text-align:center;padding:25px}
+footer{text-align:center;color:#72927c;font-size:12px;padding:30px 12px}
+</style></head>
+<body>
+<header><div class="brand">SATYAM HACK STORE</div><div class="sub">APP HUB // DOWNLOAD CENTER</div></header>
+<main class="wrap">
+ <section class="terminal">
+  <div class="termline">user@satyam-store:~$ system_status</div>
+  <div class="termline">[✓] Store online</div>
+  <div class="termline">[✓] App directory loaded</div>
+  <div class="termline">[>] Ready to browse<span class="cursor">_</span></div>
+ </section>
+ <input id="search" class="search" type="search" placeholder="⌕ Search apps and games..." aria-label="Search apps">
+ <h2>▸ FEATURED APPS & GAMES</h2>
+ <section class="grid" id="apps">
+  <article class="app" data-name="Dam City World Bihari Dukaan">
+   <div class="apphead"><div class="icon">DG</div><div><h3>Dam City World – Bihari Dukaan</h3><div class="badge">GAME • VERSION 1.0.2</div></div></div>
+   <p class="desc">Explore a city-themed game inspired by local shop life.</p>
+   <a class="btn" href="dam-city-world-bihari-dukaan.apk" download>⬇ DOWNLOAD APK</a>
+  </article>
+  <article class="app" data-name="Your App Name">
+   <div class="apphead"><div class="icon">＋</div><div><h3>Your Next App</h3><div class="badge">COMING SOON</div></div></div>
+   <p class="desc">Add another app card by editing this file when your app is ready.</p>
+   <a class="btn" href="#" onclick="alert('This app is coming soon.');return false;">COMING SOON</a>
+  </article>
+ </section>
+ <div class="empty" id="empty">No matching apps found.</div>
+ <p style="font-size:12px;color:#8eaa98;line-height:1.6;margin-top:20px">Note: Download buttons work only when the matching real APK files are uploaded beside index.html. This template does not include an APK.</p>
+</main>
+<footer>© 2026 SATYAM HACK STORE • Safe downloads only</footer>
+<script>
+const input=document.getElementById('search'),cards=[...document.querySelectorAll('.app')],empty=document.getElementById('empty');
+input.addEventListener('input',()=>{let q=input.value.toLowerCase(),shown=0;cards.forEach(c=>{let ok=c.dataset.name.toLowerCase().includes(q);c.style.display=ok?'block':'none';if(ok)shown++});empty.style.display=shown?'none':'block'});
+</script></body></html>
